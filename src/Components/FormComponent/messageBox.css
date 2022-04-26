@@ -1,0 +1,9 @@
+.message-box{
+    background-color: #fff;
+    width: 50%;
+    margin: 0 auto;
+    padding: 60px;
+    margin-top: 60px;
+    text-align: center;
+    color: red;
+}
