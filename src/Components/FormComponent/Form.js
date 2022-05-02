@@ -56,8 +56,8 @@ const Form = () => {
   };
 
   return (
-    <FancyBorder className="">
-      <div className="form-box">
+    <FancyBorder className="form-box">
+      <div className="">
         <h2 className="register-heading">Register</h2>
         <form action="" onSubmit={FormSubmissionHandler}>
           <div className="form-group">

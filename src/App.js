@@ -5,10 +5,27 @@ import MessageBox from "./Components/FormComponent/MessageBox";
 
 
 function App() {
+  const MessageBoxDetails = {
+    name: 'MessageBox',
+    classType: 'Functional Component',
+    parent: 'App Component'
+  }
+
+  const FormDetails = {
+    name: 'Form',
+    classType: 'Functional Component',
+    parent: 'App Component'
+  }
+
+  const BusinessPageDetails = {
+    name: 'Business Page',
+    classType: 'Functional Component',
+    parent: 'App Component'
+  }
   return <div>
-    {/* <Form></Form> */}
-    <MessageBox></MessageBox>
-    <BusinessPage></BusinessPage>
+    <Form details={FormDetails}></Form>
+    <MessageBox details={MessageBoxDetails}></MessageBox>
+    <BusinessPage details={BusinessPageDetails}></BusinessPage>
   </div>;
 }
 
