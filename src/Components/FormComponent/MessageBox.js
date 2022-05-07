@@ -2,7 +2,6 @@ import React from 'react';
 import FancyBorder from './FancyBorder';
 import './messageBox.css';
 const MessageBox = (props) => {
-   
     return <FancyBorder className='message-box'>
         <h1>Hello, I am a message</h1>
         Here Are My Component Details

@@ -64,3 +64,13 @@ body{
 .form-button:active{
     background-color: rgb(77, 9, 77);
 }
+
+.form-input.invalid{
+    border: 2px solid red;
+    background-color: rgba(247, 128, 128, 0.966);
+   
+}
+.form-input.invalid::placeholder{
+    color: rgb(146, 16, 16);
+}
+

@@ -9,33 +9,92 @@ const Form = () => {
   const [levelInputValue, setLevelInputValue] = useState("");
   const [dateInputValue, setDateInputValue] = useState("");
 
+  const [validInput, setValidInput] = useState(true);
+  
+
   const NameChangeHandler = (event) => {
+    if(event.target.value.trim() > 0){
+      setValidInput(true);
+    }
     setNameInputValue(event.target.value);
   };
 
   const EmailChangeHandler = (event) => {
+    if(event.target.value.trim() > 0){
+      setValidInput(true);
+    }
+
     setEmailInputValue(event.target.value);
+    
   };
 
   const FacultyChangeHandler = (event) => {
+
+    if(event.target.value.trim() > 0){
+      setValidInput(true);
+    }
+
     setFacultyInputValue(event.target.value);
   };
 
   const DepartmentChangeHandler = (event) => {
+
+    if(event.target.value.trim() > 0){
+      setValidInput(true);
+    }
+
     setDepartmentInputValue(event.target.value);
   };
 
   const LevelChangeHandler = (event) => {
+    if(event.target.value.trim().length > 0){
+      setValidInput(true);
+    }
     setLevelInputValue(event.target.value);
   };
 
   const DateHandler = (event) => {
+    if(event.target.value.trim().length > 0){
+      setValidInput(true);
+    }
     setDateInputValue(event.target.value);
   };
 
   const FormSubmissionHandler = (event) => {
     event.preventDefault();
-    // console.log(nameInputValue, emailInputValue, facultyInputValue, departmentInputValue, levelInputValue)
+
+    //VALIDATE FORM
+    if(nameInputValue.trim().length === 0){
+      setValidInput(false);
+      return;
+    }
+
+    if(emailInputValue.trim().length === 0){
+      setValidInput(false);
+      return;
+    }
+
+    if(facultyInputValue.trim().length === 0){
+      setValidInput(false);
+      return;
+    }
+
+    if(departmentInputValue.trim().length === 0){
+      setValidInput(false);
+      return;
+    }
+
+    if(levelInputValue.trim().length === 0){
+      setValidInput(false);
+      return;
+    }
+
+    if(dateInputValue.trim().length === 0){
+      setValidInput(false);
+      return;
+    }
+
+
     const StudentData = {
       id: new Date().getMilliseconds(),
       name: nameInputValue,
@@ -64,7 +123,7 @@ const Form = () => {
             <label htmlFor="">Name</label>
             <input
               type="text"
-              className="form-input"
+              className={!validInput ? 'form-input invalid' : 'form-input'}
               placeholder="Name"
               onChange={NameChangeHandler}
               value={nameInputValue}
@@ -75,7 +134,7 @@ const Form = () => {
             <label htmlFor="">Email</label>
             <input
               type="email"
-              className="form-input"
+              className={!validInput ? 'form-input invalid': 'form-input'}
               placeholder="Email"
               onChange={EmailChangeHandler}
               value={emailInputValue}
@@ -86,7 +145,7 @@ const Form = () => {
             <label htmlFor="">Faculty</label>
             <input
               type="text"
-              className="form-input"
+              className={`form-input  ${!validInput ? 'invalid' : ''}`}
               placeholder="Faculty"
               onChange={FacultyChangeHandler}
               value={facultyInputValue}
@@ -97,7 +156,7 @@ const Form = () => {
             <label htmlFor="">Department</label>
             <input
               type="text"
-              className="form-input"
+              className={`form-input  ${!validInput ? 'invalid': ''}`}
               placeholder="Department"
               onChange={DepartmentChangeHandler}
               value={departmentInputValue}
@@ -107,7 +166,7 @@ const Form = () => {
             <label htmlFor="">Level</label>
             <input
               type="text"
-              className="form-input"
+              className={`form-input ${!validInput ? 'invalid' : ''}`}
               placeholder="Level"
               onChange={LevelChangeHandler}
               value={levelInputValue}
@@ -117,7 +176,7 @@ const Form = () => {
             <label htmlFor="">Date of Birth</label>
             <input
               type="date"
-              className="form-input"
+              className={`form-input ${!validInput ? 'invalid' : ''}` }
               onChange={DateHandler}
               value={dateInputValue}
             />
