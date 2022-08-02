@@ -1,0 +1,17 @@
+.journal-container{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #fff;
+    
+}
+.header{
+    background-color: rgba(179, 7, 7, 0.801);
+    color: #fff;
+    border-radius: 3px;
+    padding: 20px;
+    text-align: center;
+}
+.journal-body{
+    padding: 30px;
+}

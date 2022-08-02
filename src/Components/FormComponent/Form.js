@@ -8,19 +8,20 @@ const Form = () => {
   const [departmentInputValue, setDepartmentInputValue] = useState("");
   const [levelInputValue, setLevelInputValue] = useState("");
   const [dateInputValue, setDateInputValue] = useState("");
+  const [showButton, updateShowButton] = useState(false);
 
   const [validInput, setValidInput] = useState(true);
   
 
   const NameChangeHandler = (event) => {
-    if(event.target.value.trim() > 0){
+    if(event.target.value.trim().length > 0){
       setValidInput(true);
     }
     setNameInputValue(event.target.value);
   };
 
   const EmailChangeHandler = (event) => {
-    if(event.target.value.trim() > 0){
+    if(event.target.value.trim().length > 0){
       setValidInput(true);
     }
 
@@ -30,7 +31,7 @@ const Form = () => {
 
   const FacultyChangeHandler = (event) => {
 
-    if(event.target.value.trim() > 0){
+    if(event.target.value.trim().length > 0){
       setValidInput(true);
     }
 
@@ -39,7 +40,7 @@ const Form = () => {
 
   const DepartmentChangeHandler = (event) => {
 
-    if(event.target.value.trim() > 0){
+    if(event.target.value.trim().length > 0){
       setValidInput(true);
     }
 
@@ -56,6 +57,7 @@ const Form = () => {
   const DateHandler = (event) => {
     if(event.target.value.trim().length > 0){
       setValidInput(true);
+      updateShowButton(true);
     }
     setDateInputValue(event.target.value);
   };
@@ -183,7 +185,7 @@ const Form = () => {
           </div>
 
           <div className="form-group">
-            <button className="form-button">Submit</button>
+            <button className={`form-button ${!showButton ? 'd-none' : ''}`}>Submit</button>
           </div>
         </form>
       </div>

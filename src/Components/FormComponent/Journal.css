@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed&display=swap');
+*{
+    font-family: 'Cabin Condensed', sans-serif;
+}
+.journal{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+.img{
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(3, 3, 3, 0.075);
+}
+.map-link a{
+    color: rgb(184, 184, 184);
+    font-size: 16px;
+    text-decoration: none;
+}
