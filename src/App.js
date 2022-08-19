@@ -6,6 +6,11 @@ import MessageBox from "./Components/FormComponent/MessageBox";
 import TravelJournal from "./Components/FormComponent/TravelJournal";
 import Note from "./Notes/Note";
 import Draft from "./Notes/Draft";
+import Nav from "./Notes/Nav";
+import Counter from "./Counter/Counter";
+import Todo from "./Form/Todo";
+import Name from "./Names/Name";
+import Course from "./Courses/Course";
 
 
 
@@ -87,9 +92,9 @@ function App() {
 
   const [emeka, setEmeka] = useState('Emeka');
   //Practicing UseEffect
-  useEffect(() => {
-    setEmeka('Mr Emeka');
-  })
+  // useEffect(() => {
+  //   setEmeka('Mr Emeka');
+  // })
 
   const getDrafts = (draft) => {
     setData((prevDrafts) => {
@@ -98,12 +103,12 @@ function App() {
 
 
     //Show components only if there is data available
-    if(draft.length > 0){
+    if (draft.length > 0) {
       setShowDraft(true);
     }
   }
 
- 
+
 
   return (
     <div>
@@ -151,13 +156,22 @@ function App() {
       </form> */}
 
       {/* <Form/> */}
-    
-     
-        <Note getDraftsHandler={getDrafts}/>
 
-        {showDraft &&   <Draft data={data}  /> }
-      
-     
+      {/* <Nav /> <br/>
+
+       <Course/>
+
+      <Name/>
+
+      <Todo/>
+
+      <Counter/>  */}
+
+      <Note getDraftsHandler={getDrafts} />
+
+      {showDraft && <Draft data={data} />}
+
+
 
     </div>
   );

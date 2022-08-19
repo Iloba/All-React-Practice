@@ -1,0 +1,24 @@
+.use-reducer{
+    width: 50%;
+    margin: 0 auto;
+
+    h2{
+        text-align: center;
+    }
+
+    .counter{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    button{
+        margin: 20px;
+        background-color: #030303;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+}

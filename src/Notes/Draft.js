@@ -18,11 +18,11 @@ const Draft = (props) => {
     const saveNotes = async (event) => {
         event.preventDefault();
 
-        const response = await axios.post('http://127.0.0.1:8000/api/submit-notes', {
-            note: props.data,
-        });
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/submit-notes', {
+                note: props.data,
+            });
 
-        if (response.data.status === 200) {
             swal({
                 title: "Good job", text: response.data.message, icon:
                     "success"
@@ -30,27 +30,23 @@ const Draft = (props) => {
                 window.location.reload();
             }
             );
-        } else {
+        } catch (error) {
             swal({
-                title: "Error", text: response.data.error, icon:
-                    "error"
+                title: "Error", text: 'Something Went Wrong', 
+                icon:   "error"
             }).then(function () {
                 window.location.reload();
             }
             );
         }
-
-
     }
 
     return (
         <>
             <ul className='list-of-notes'>
-                {props.data.map(draft => <li className='list' key={draft + Math.floor(Math.random() * 10)}>{draft}</li>)}
+                {props.data.map((draft, index) => <li className='list' key={index + Math.floor(Math.random() * 10)}>{draft}</li>)}
             </ul>
-
             {btnState && <button className='save-notes-button' onClick={saveNotes}>Save Notes</button>}
-
         </>
     );
 }

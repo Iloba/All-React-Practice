@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 body {
     background-color: #f9f9f9;
     color: #030303;
+    font-family: 'Bebas Neue', cursive;
 }
 
 .parent-div {
@@ -10,8 +12,12 @@ body {
     margin: 0 auto;
     margin-top: 120px;
     border-radius: 5px;
+    border: 3px solid black;
   
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    .heading{
+        font-family: 'Bebas Neue', cursive;
+    }
     form {
         textarea {
             width: 100%;
@@ -39,6 +45,7 @@ body {
     }
     .form-element{
         width: 50%;
+        margin-top: 50px;
     }
     .form-div{
         display: flex;
@@ -58,6 +65,7 @@ body {
         .pagination-box{
             display: flex;
             justify-content: center;
+           
             color: #030303;
         }
 
@@ -68,6 +76,7 @@ body {
        background-color: #030303;
        color: #fff;
        padding: 10px 20px;
+       margin-top: 20px;
    }
  
 
@@ -115,4 +124,39 @@ body {
     padding: 10px;
     margin-bottom: 10px;
     cursor: pointer;
+}
+.no-notes{
+    text-align: center;
+}
+.delete-btn{
+    display: block;
+    margin: 0 auto;
+    background-color: #030303;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    margin-top: 20px;
+    color: #fff;
+    padding: 10px 20px;
+}
+.loader{
+    display: block;
+    margin: 0 auto;
+}
+.loader-box{
+    height: auto;
+}
+.div-that-holds-input-and-list{
+    display: flex;
+    // margin-top: 32px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    background-color: #030303;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.check-box{
+    margin: 10px;
+}
+.list-div{
+    margin-top: 32px;
 }
