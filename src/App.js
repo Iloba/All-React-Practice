@@ -11,6 +11,7 @@ import Counter from "./Counter/Counter";
 import Todo from "./Form/Todo";
 import Name from "./Names/Name";
 import Course from "./Courses/Course";
+import Index from "./Blog/Index";
 
 
 
@@ -167,9 +168,11 @@ function App() {
 
       <Counter/>  */}
 
-      <Note getDraftsHandler={getDrafts} />
+      {/* <Note getDraftsHandler={getDrafts} />
 
-      {showDraft && <Draft data={data} />}
+      {showDraft && <Draft data={data} />} */}
+
+      <Index/>
 
 
 

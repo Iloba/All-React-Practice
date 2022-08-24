@@ -4,6 +4,7 @@ import React, { useEffect, useReducer, useRef, useState } from 'react';
 import Pagination from './Pagination/Pagination';
 import './note.scss';
 import Loader from './assets/Iphone-spinner-2.gif'
+// import TextToImage from 'reactjs-text-to-image';
 const Note = (props) => {
 
     const [note, setNote] = useState('');
@@ -12,7 +13,8 @@ const Note = (props) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [postPerPage] = useState(4);
     const [deleteIds, setDeleteIds] = useState([]);
-    const [checked, setChecked] = useState(false);
+    const [Checked, setChecked] = useState(false);
+    const [error, setError] = useState(false);
 
     const reducer = (state, action) => {
         switch (action.type) {
@@ -54,6 +56,7 @@ const Note = (props) => {
                     text: 'Something went wrong',
                     icon: "warning",
                 });
+                setError(true);
             }
             // return response.data.notes
         }
@@ -67,8 +70,10 @@ const Note = (props) => {
         // console.log(checkBox.current);
         if (checkBox.current[index].checked) {
             dispatch({ type: 'checked', payload: { id: checkBox.current[index].id } })
+            setChecked(true);
         } else {
             dispatch({ type: 'unchecked', payload: { id: checkBox.current[index].id } })
+            setChecked(false);
         }
     }
 
@@ -101,6 +106,16 @@ const Note = (props) => {
 
     //Display the gotten data
     let NotesMarkup = '';
+    let ErrorMarkup = '';
+    if (error) {
+        ErrorMarkup = <div className='loader-box'>
+            <h1 className='text-center'>Something Went Wrong Please Try again</h1>
+        </div>
+    } else {
+        ErrorMarkup = <div className='loader-box'>
+            <h1>&nbsp;</h1>
+        </div>
+    }
     if (Loading) {
         NotesMarkup = <div className='loader-box'>
             <img src={Loader} className="loader" alt="" />
@@ -111,9 +126,9 @@ const Note = (props) => {
             <ul className='list-div'>
                 {currentPost.map((note, index) =>
                     <>
-                        <div className='div-that-holds-input-and-list'>
+                        <div key={"div" + note.note} className='div-that-holds-input-and-list'>
                             <input
-                                key={index}
+                                key={"input" + note.note}
                                 type="checkbox"
                                 id={note.id}
                                 onChange={() => handleCheckboxChange(index)}
@@ -122,7 +137,7 @@ const Note = (props) => {
                                 className="check-box "
                             />
                             <br />
-                            <li key={note.id} className='displayed-notes'>{note.note.slice(0, 60)}......</li>
+                            <li style={Checked ? { backgroundColor: 'red' } : { backgroundColor: 'black' }} key={"list" + note.note} onClick={() => { console.log('clicked') }} className='displayed-notes'>{note.note.slice(0, 60)}......</li>
                         </div>
 
                     </>
@@ -141,11 +156,12 @@ const Note = (props) => {
                 <button className='heading'>Add Note</button>
             </form>
             <div className='notes-div'>
-                {NotesMarkup}
+                {NotesMarkup} {ErrorMarkup}
                 <div className='pagination-box'>
                     <Pagination PostsPerPage={postPerPage} totalPosts={allNotes.length} paginate={paginate} />
                 </div>
                 <button className='delete-btn' onClick={deleteNotes}>Delete</button>
+                {/* <TextToImage name="Hello world!" x="0" y="10" /> */}
             </div>
         </div>
     </div>);

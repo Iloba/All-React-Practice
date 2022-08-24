@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+body{
+    background-color: #030303;
+
+    h1{
+        font-family: 'Bebas Neue', cursive;
+    }
+}
+.form-box{
+    background-color: #ffff;
+    padding: 50px;
+
+    .news-btn{
+        background-color: #030303;
+        color: #fff;
+        border: none;
+        outline: none;
+        padding: 10px 30px;
+        font-size: 18px;
+    }
+    .form-control:focus{
+        outline: none;
+        box-shadow: none;
+        border: 1px solid #030303;
+    }
+}
+
+.news-box{
+    background-color: #fff;
+
+    .news-list{
+        background-color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin: 0 auto;
+      
+    }
+}
