@@ -12,6 +12,7 @@ import Todo from "./Form/Todo";
 import Name from "./Names/Name";
 import Course from "./Courses/Course";
 import Index from "./Blog/Index";
+import Footer from "./Notes/Footer";
 
 
 
@@ -172,7 +173,11 @@ function App() {
 
       {showDraft && <Draft data={data} />} */}
 
+      <Nav/>
+
       <Index/>
+
+      <Footer/>
 
 
 
