@@ -169,9 +169,9 @@ function App() {
 
       <Counter/>  */}
 
-      {/* <Note getDraftsHandler={getDrafts} />
+      {/* /* <Note getDraftsHandler={getDrafts} /> */}
 
-      {showDraft && <Draft data={data} />} */}
+      {showDraft && <Draft data={data} />} */
 
       <Nav/>
 
